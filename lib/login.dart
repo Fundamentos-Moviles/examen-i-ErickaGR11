@@ -1,3 +1,4 @@
+import 'package:examen1egr/home.dart';
 import 'package:examen1egr/more_info.dart';
 import 'package:flutter/material.dart';
 import 'package:examen1egr/lib/utils/constans.dart';
@@ -131,7 +132,7 @@ class _LoginState extends State<Login> {
         mensaje="Contraseña incorrecta";
       } else {
         mensaje="Ingreso Correctamente";
-        Navigator.push(context,MaterialPageRoute(builder: (context)=>MoreInfo()));
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>Home()));
       }
     });
   }
