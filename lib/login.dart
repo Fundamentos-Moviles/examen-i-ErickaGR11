@@ -1,3 +1,4 @@
+import 'package:examen1egr/more_info.dart';
 import 'package:flutter/material.dart';
 import 'package:examen1egr/lib/utils/constans.dart';
 
@@ -124,16 +125,13 @@ class _LoginState extends State<Login> {
     setState(() {
       if (usuario.text.isEmpty || pass.text.isEmpty) {
         mensaje="Datos incompletos";
-        print(' invalido');
       } else if (usuario.text != 'test') {
         mensaje="Usuario incorrecto";
-        print('user invalido');
       } else if (pass.text != 'FDM1') {
         mensaje="Contraseña incorrecta";
-        print('contra invalido');
       } else {
         mensaje="Ingreso Correctamente";
-        print('valido');
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>MoreInfo()));
       }
     });
   }
