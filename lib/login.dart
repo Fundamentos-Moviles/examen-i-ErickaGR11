@@ -3,15 +3,16 @@ import 'package:examen1egr/lib/utils/constans.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
-
   @override
   State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-  final usuario=TextEditingController();
-  TextEditingController pass= TextEditingController();
+  final usuario = TextEditingController();
+  TextEditingController pass = TextEditingController();
   final List<Color> colors = [fondo, fondo2, fondo3, fondo4];
+  String mensaje = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +23,7 @@ class _LoginState extends State<Login> {
             children: [
               recuadro(numFlex: 4, color1: fondo2, color2: fondo, color3: fondo3, color4: fondo4),
               recuadro(numFlex: 4, color1: fondo3, color2: fondo4, color3: fondo2, color4: fondo),
-              recuadro(numFlex: 4, color1: fondo4, color2: fondo3,color3: fondo, color4: fondo2),
+              recuadro(numFlex: 4, color1: fondo4, color2: fondo3, color3: fondo, color4: fondo2),
             ],
           ),
           Center(
@@ -46,7 +47,7 @@ class _LoginState extends State<Login> {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                     TextFormField(
                       controller: usuario,
                       decoration: InputDecoration(
@@ -71,7 +72,19 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    SizedBox(height: 20),
+                    if (mensaje != "")
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          mensaje,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: botones,
@@ -80,9 +93,7 @@ class _LoginState extends State<Login> {
                         ),
                         fixedSize: const Size(200, 40),
                       ),
-                      onPressed: () {
-
-                      },
+                      onPressed: validaUser,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
@@ -95,7 +106,9 @@ class _LoginState extends State<Login> {
                     ),
                     SizedBox(height: 20),
                     const Text('Mi primer examen, ¿estará sencillo?',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+                      style: TextStyle(fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                   ],
                 ),
@@ -106,8 +119,25 @@ class _LoginState extends State<Login> {
       ),
     );
   }
-}
 
+  void validaUser() {
+    setState(() {
+      if (usuario.text.isEmpty || pass.text.isEmpty) {
+        mensaje="Datos incompletos";
+        print(' invalido');
+      } else if (usuario.text != 'test') {
+        mensaje="Usuario incorrecto";
+        print('user invalido');
+      } else if (pass.text != 'FDM1') {
+        mensaje="Contraseña incorrecta";
+        print('contra invalido');
+      } else {
+        mensaje="Ingreso Correctamente";
+        print('valido');
+      }
+    });
+  }
+}
 
 
 class recuadro extends StatelessWidget {
