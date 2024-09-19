@@ -1,3 +1,6 @@
+/// ERICKA GONZALEZ ROMERO #5
+
+import 'package:examen1egr/more_info.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
 
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:Login(),
+      home:MoreInfo(),
       //EjercicioClase
     );
   }

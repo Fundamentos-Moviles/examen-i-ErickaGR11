@@ -1,5 +1,5 @@
+/// ERICKA GONZALEZ ROMERO #5
 import 'package:examen1egr/home.dart';
-import 'package:examen1egr/more_info.dart';
 import 'package:flutter/material.dart';
 import 'package:examen1egr/lib/utils/constans.dart';
 
