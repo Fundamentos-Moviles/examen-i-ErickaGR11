@@ -52,5 +52,23 @@ class _MoreInfoState extends State<MoreInfo> {
     );
   }
 
-
+  void agregaRecuadro() {
+    setState(() {
+      var ultimoRenglon = matrizRecuadros.last;
+      if (ultimoRenglon.length >= 12) {
+        matrizRecuadros.add([]);
+        ultimoRenglon = matrizRecuadros.last;
+      }
+      ultimoRenglon.add(
+        Expanded(
+          child: Container(
+            height: 60,
+            decoration: BoxDecoration(
+              color: ultimoRenglon.length % 2 == 0 ? fondo : fondo3,
+            ),
+          ),
+        ),
+      );
+    });
+  }
 }

@@ -7,7 +7,7 @@ const List listaExamen=[
   //‘1 # 10 # Comprar pastel # Pasar a la pastelería para comprar un pastel de chocolate # 2’,
   '1#5 #Comprar pastel #Pasar a la pastelería para comprar un pastel de chocolate #1',
   '2#6 #Tarea de Criptografia #Subir la tarea 2 a didactic #2',
-  '3#7 #Examen de Movil 32#Realizar el examen de 1er parcial y subirlo a github #5',
+  '3#7 #Examen de Movil#Realizar el examen de 1er parcial y subirlo a github #5',
   '4#8 #Despensa #Ir a comprar la despensa semanal #2',
   '5#9 #Tarea de Administracion #Realizar mapa mental de todo el parcial #3',
   '6#10 #Servicio social #Realizar el avance de el sistema #2',
