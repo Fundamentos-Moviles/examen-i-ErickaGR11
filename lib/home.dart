@@ -45,7 +45,14 @@ class _HomeState extends State<Home> {
                   id: datos[0],
                   stars: int.parse(datos[4]),
                   onDelete: (String id) {
-                    eliminaCard(id, index - 1);
+                    setState(() {
+                      if (['10', '15', '20', '23'].contains(id)) {
+                        showSnackBar(context, 'Se eliminó el elemento con el ID:$id', 5);
+                      } else {
+                        lista.removeAt(index);
+                        showSnackBar(context, 'Se eliminó el elemento con el ID: $id', 5);
+                      }
+                    });
                   },
                 )
               else
@@ -56,7 +63,14 @@ class _HomeState extends State<Home> {
                   id: datos[0],
                   stars: int.parse(datos[4]),
                   onDelete: (String id) {
-                    eliminaCard(id, index - 1);
+                    setState(() {
+                      if (['10', '15', '20', '23'].contains(id)) {
+                        showSnackBar(context, 'Se eliminó el elemento con el ID:$id', 5);
+                      } else {
+                        lista.removeAt(index);
+                        showSnackBar(context, 'Se eliminó el elemento con el ID: $id', 5);
+                      }
+                    });
                   },
                 ),
               const SizedBox(height: 10),
@@ -103,16 +117,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void eliminaCard(String id, int index) {
-    if (['10', '15', '20', '23'].contains(id)) {
-      showSnackBar(context, 'Se eliminó el elemento con el ID:$id', 5);
-    } else {
-      setState(() {
-        lista.removeAt(index);
-      });
-      showSnackBar(context, 'Se eliminó el elemento con el ID: $id', 5);
-    }
-  }
 }
 
 void showSnackBar(BuildContext context, String texto, int duracion) {
